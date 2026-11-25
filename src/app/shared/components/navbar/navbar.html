@@ -1,4 +1,14 @@
-<nav>
-  <a routerLink="/">Ver todos los productos</a>
-  <a routerLink="/">Cesta </a>
+<nav class="navbar">
+  <a class="navbar__link" routerLink="/">Cesta</a>
+
+  <button type="button" class="navbar__toggle" aria-label="Abrir menú" [attr.aria-expanded]="isMenuOpen()"
+    (click)="toggleMenu()">
+    <span class="navbar__toggle-line"></span>
+    <span class="navbar__toggle-line"></span>
+    <span class="navbar__toggle-line"></span>
+  </button>
+
+  <div class="navbar__menu" [class.navbar__menu--open]="isMenuOpen()">
+    <a class="navbar__link" routerLink="/">Ver todos los productos</a>
+  </div>
 </nav>

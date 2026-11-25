@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Header } from '../../shared/components/header/header';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/product.interface';
@@ -12,12 +12,30 @@ import { ProductCard } from '../../components/product-card/product-card';
 })
 export class AllProducts {
 
-  private productService = inject(ProductService)
+  private productService = inject(ProductService);
   products = signal<Product[]>(this.productService.getProducts());
+  selectedCategory = signal<string | null>(null);
 
-  
+  selectCategory(category: string | null): void {
+    if (this.selectedCategory() === category) {
+      this.selectedCategory.set(null);
+    } else {
+      this.selectedCategory.set(category);
+    }
+  }
 
+  filteredProducts = computed<Product[]>(() => {
+    const currentCategory = this.selectedCategory();
+    const allProducts = this.products();
 
+    if (!currentCategory) {
+      return allProducts;
+    }
+
+    return allProducts.filter((product) => product.category === currentCategory);
+  });
+
+  totalProducts = computed<number>(() => this.filteredProducts().length);
 
 
 }

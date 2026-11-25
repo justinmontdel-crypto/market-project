@@ -1,3 +1,53 @@
-:host {
+@use 'functions' as *;
+@use 'variables' as *;
+
+.products {
+  padding: pxToRem(16);
+}
+
+.products__filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: pxToRem(12);
+  margin: pxToRem(16) 0;
+}
+
+.products__filter-btn {
+  padding: pxToRem(6) pxToRem(12);
+  border: $border-width solid $border-color-dark;
+  border-radius: $border-radius;
+  background-color: $surface-color;
+  color: $text-color-primary;
+  font-family: inherit;
+  font-size: pxToRem(14);
+  cursor: pointer;
+}
+
+.products__filter-btn--active {
+  background-color: $dark-action-color;
+  border-color: $dark-action-color;
+  color: $text-on-action-color;
+}
+
+.products__container {
+  margin-top: pxToRem(16);
+}
+
+.products__grid {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(24);
+  margin-top: pxToRem(16);
+}
+
+.products__card {
   display: block;
+}
+
+@media (min-width: 768px) {
+  .products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(pxToRem(250), 1fr));
+    gap: pxToRem(32);
+  }
 }

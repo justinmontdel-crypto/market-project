@@ -1,7 +1,7 @@
 export interface Product {
-  id?: number;
+  id: number;
   name: string;
   price: number;
   image: string;
-  category: 'frutas' | 'verduras' | 'zumos';
+  category: 'Frutas' | 'Verduras' | 'Zumos';
 }

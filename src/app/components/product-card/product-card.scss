@@ -1,3 +1,55 @@
+@use 'functions' as *;
+@use 'variables' as *;
+
 :host {
   display: block;
+  height: 100%;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: pxToRem(16);
+  background-color: $surface-color;
+  box-sizing: border-box;
+}
+
+.product-card__image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 pxToRem(12);
+}
+
+.product-card__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-card__info {
+  margin-bottom: pxToRem(16);
+}
+
+.product-card__title {
+  margin: 0 0 pxToRem(4);
+  color: $text-color-primary;
+  font-weight: 400;
+}
+
+.product-card__price {
+  margin: 0;
+  color: $text-color-primary;
+}
+
+.product-card__button {
+  margin-top: auto;
+  padding: pxToRem(10) pxToRem(16);
+  border: $border-width solid $accent-color;
+  border-radius: $border-radius;
+  background-color: $accent-color;
+  color: $text-on-action-color;
+  cursor: pointer;
 }

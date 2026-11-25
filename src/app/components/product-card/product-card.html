@@ -1,13 +1,13 @@
-<div class="product-card">
-<div class="image-container">
-<img [src]="product().image" [alt]="product().name">
+<article class="product-card">
+<figure class="product-card__image-container">
+<img class="product-card__image" [src]="product().image" [alt]="product().name">
+</figure>
+
+<div class="product-card__info">
+  <h3 class="product-card__title">{{ product().name }}</h3>
+  <p class="product-card__price">{{ product().price }}€ (con IVA)</p>
 </div>
 
-<div class="product-info">
-  <h3>{{ product().name }}</h3>
-  <p>{{ product().price }}€ (con IVA)</p>
-</div>
 
-
-<button class="btn-buy">Añadir a la cesta</button>
-</div>
+<button class="product-card__button">Añadir a la cesta</button>
+</article>

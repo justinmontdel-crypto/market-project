@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 
 @Component({
-  selector: 'app-product-card',
+  selector: 'product-card',
   imports: [],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',

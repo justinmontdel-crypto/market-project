@@ -44,10 +44,16 @@
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $breakpoint-tablet) {
   .products__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(pxToRem(250), 1fr));
     gap: pxToRem(32);
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .navbar__toggle {
+    display: none;
   }
 }

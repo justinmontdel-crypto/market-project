@@ -47,6 +47,51 @@
   white-space: nowrap;
 }
 
+.navbar__cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: pxToRem(8);
+}
+
+.navbar__cart-icon {
+  display: block;
+  width: pxToRem(24);
+  height: pxToRem(24);
+}
+
 .navbar__link:hover {
   text-decoration: underline;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu,
+  .navbar__menu--open {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: pxToRem(24);
+    padding: 0;
+    background-color: transparent;
+    order: -1;
+  }
+
+  .navbar__link--cta {
+    padding: pxToRem(12) pxToRem(12);
+    border-radius: pxToRem(4);
+    background-color: $text-color-primary;
+    color: #ffffff;
+  }
+
+  .navbar__link--cta:hover {
+    text-decoration: none;
+    opacity: 0.9;
+  }
 }

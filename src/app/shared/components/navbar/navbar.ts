@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'navbar',
@@ -8,10 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  private readonly cartService = inject(CartService);
 
-  private isMenuOpen = signal(false)
+  protected readonly cartCount = this.cartService.totalItems;
+  protected readonly isMenuOpen = signal(false)
 
-  private toggleMenu(): void {
+  protected toggleMenu(): void {
     this.isMenuOpen.update((current) => !current)
   }
   

@@ -1,5 +1,8 @@
 <nav class="navbar">
-  <a class="navbar__link" routerLink="/">Cesta</a>
+  <a class="navbar__link navbar__cart-link" routerLink="/cart">
+    <img class="navbar__cart-icon" src="img/logo_basket.svg" alt="">
+    <span>Cesta ({{ cartCount() }})</span>
+  </a>
 
   <button type="button" class="navbar__toggle" aria-label="Abrir menú" [attr.aria-expanded]="isMenuOpen()"
     (click)="toggleMenu()">
@@ -9,6 +12,6 @@
   </button>
 
   <div class="navbar__menu" [class.navbar__menu--open]="isMenuOpen()">
-    <a class="navbar__link" routerLink="/">Ver todos los productos</a>
+    <a class="navbar__link navbar__link--cta" routerLink="/">Ver todos los productos</a>
   </div>
 </nav>
